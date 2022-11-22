@@ -12,8 +12,6 @@ customUi: |-
   
   <#if urlVar?? && urlVar?has_content>
   
-  <h1>${urlVar}</h1>
-  
   <script nonce="<@wp.cspNonce />" type='text/javascript' src="${urlVar}" ></script>
   
   <script nonce="<@wp.cspNonce />">
@@ -48,7 +46,6 @@ customUi: |-
   
   <#else>
     <@wp.i18n key="AIKA_NOT_CONFIGURED" />
-  <!--Using default URL  -->
   </#if>
 
 
