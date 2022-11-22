@@ -1,0 +1,18 @@
+descriptorVersion: v5
+name: da_show
+parentName: global:homepage
+titles:
+  en: Digital Assistant
+  it: Assistente digitale
+pageModel: ad_template
+ownerGroup: free
+joinGroups: []
+displayedInMenu: true
+seo: false
+charset: utf-8
+status: published
+widgets:
+  - name: digital-assistant
+    config:
+      name: https://sdkathlos.it/avatar/freedemo/js_wordpress/sdk_main.js
+    pos: 0

@@ -1,0 +1,18 @@
+{
+    "microservices": [],
+    "microfrontends": [
+        {
+            "name": "digital-assistant-config",
+            "customElement": "digital-assistant-config",
+            "stack": "react",
+            "type": "widget-config",
+            "group": "free",
+            "publicFolder": "public"
+        }
+    ],
+    "svc": [],
+    "name": "digital-assistant-bundle",
+    "version": "0.0.6",
+    "description": "AIKA Digital Assistant",
+    "type": "bundle"
+}

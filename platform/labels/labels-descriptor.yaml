@@ -1,0 +1,8 @@
+- key: ASSISTENTE_DIGITALE
+  titles:
+    en: Digital assistant
+    it: Assistente digitale
+- key: AIKA_NOT_CONFIGURED
+  titles:
+    en: Digital assistant not configured
+    it: Assistente digitale non configurato

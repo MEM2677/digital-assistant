@@ -1,0 +1,6 @@
+code: ad_inclusion_header
+guiCode: |-
+  <#assign wp=JspTaglibs["/aps-core"]>
+
+  <!-- Inclusions for this template  -->
+  <script nonce="<@wp.cspNonce />" src="<@wp.resourceURL />bundles/digital-assistant-bundle-edc26d98/resources/js/jquery-3.3.1.min.js"></script>
