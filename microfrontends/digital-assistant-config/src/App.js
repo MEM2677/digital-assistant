@@ -18,6 +18,7 @@ class App extends Component {
       if (encoded !== '' && Buffer.from(decoded, 'utf-8').toString('base64') === encoded) {
           // console.log('have valid configuration', decoded);
       } else {
+        // invalid input
         decoded = input.value;
       }
     this.setState({
