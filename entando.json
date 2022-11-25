@@ -12,7 +12,7 @@
     ],
     "svc": [],
     "name": "digital-assistant-bundle",
-    "version": "0.0.6",
+    "version": "0.0.23",
     "description": "AIKA Digital Assistant",
     "type": "bundle"
 }
