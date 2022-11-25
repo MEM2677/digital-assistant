@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.labelerror {
+ margin: 10px 0;
+  color:red;
+}
+
+.error{
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+
