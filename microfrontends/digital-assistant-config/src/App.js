@@ -12,21 +12,21 @@ class App extends Component {
   }
   componentDidMount() {
     let valore = document.getElementById("name").value;
-    console.log("valore", valore);
-    const encodato = valore;
-    let decodificato;
 
-    decodificato = Buffer.from(encodato, 'base64').toString('utf-8');
-    if (encodato !== '' && Buffer.from(decodificato, 'utf-8').toString('base64') === encodato) {
-      this.setState({invalid: false});
-      console.log('configuratione valida', this.state);
-    } else {
-      // invalid input
-      decodificato = valore;
-      this.setState({invalid: true});
-      // console.log('configurazione invalida', this.state);
+    if (valore !== "") {
+
+      const encodato = valore;
+      let decodificato;
+
+      decodificato = Buffer.from(encodato, 'base64').toString('utf-8');
+      if (encodato !== '' && Buffer.from(decodificato, 'utf-8').toString('base64') === encodato) {
+        this.setState({invalid: false});
+      } else {
+        // invalid input
+        decodificato = valore;
+        this.setState({invalid: true});
+      }
     }
-
   }
 
 
@@ -88,12 +88,13 @@ class App extends Component {
                       <div className="form-group">
                         <div className="text-right mobile-left col-sm-2 col-xs-12">
                           <label htmlFor="name" className="control-label">
-                                        <span className="FormLabel">
-                                            <span>Insert valid Base64 code</span>
-                                        </span>
-                          </label></div>
+                            <span className="FormLabel">
+                              <span>Insert valid Base64 code</span>
+                            </span>
+                          </label>
+                        </div>
                         <div className="col-sm-10 col-xs-12">
-                          <input className="form-control"  id="name" name="name" defaultValue="Sm9obiBCcm93bg==" type="text" onChange={
+                          <input className="form-control"  id="name" name="name" defaultValue={this.toBase64(name)} type="text" onChange={
                             this.handleChange}  />
                         </div>
                       </div>
