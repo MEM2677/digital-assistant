@@ -6,18 +6,25 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: props.name,
+      name: "",
       invalid: false
     };
   }
-  componentDidMount() {
-    let valore = document.getElementById("name").value;
-    if (!valore && valore !== "") {
-      this.setState({invalid: false});
-      console.log("valore dopo didmount", this.state.invalid);
-    }
-    console.log("valore dopo didmount 2", this.state.invalid);
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      name: props.name,
+    })
   }
+
+  // componentDidMount() {
+  //   let valore = document.getElementById("name").value;
+  //   if (!valore && valore !== "") {
+  //     this.setState({invalid: false});
+  //     console.log("valore dopo didmount", this.state.invalid);
+  //   }
+  //   console.log("valore dopo didmount 2", this.state.invalid);
+  // }
 
   handleChange = e => {
     const input = e.target;
@@ -58,6 +65,7 @@ class App extends Component {
 
   render() {
     const { name } = this.state;
+
     console.log('configurazione pre render', this.state);
 
     return (
