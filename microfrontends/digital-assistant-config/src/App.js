@@ -10,12 +10,31 @@ class App extends Component {
       invalid: false
     };
   }
+  componentDidMount() {
+    let valore = document.getElementById("name").value;
+    console.log("valore", valore);
+    const encodato = valore;
+    let decodificato;
+
+    decodificato = Buffer.from(encodato, 'base64').toString('utf-8');
+    if (encodato !== '' && Buffer.from(decodificato, 'utf-8').toString('base64') === encodato) {
+      this.setState({invalid: false});
+      console.log('configuratione valida', this.state);
+    } else {
+      // invalid input
+      decodificato = valore;
+      this.setState({invalid: true});
+      // console.log('configurazione invalida', this.state);
+    }
+
+  }
+
 
   handleChange = e => {
     const input = e.target;
     const encoded = input.value;
-    const test = document.getElementById('widget-button-holder');
-    console.log(test);
+    // const test = document.getElementById('widget-button-holder');
+    // console.log(test);
 
     let decoded;
 
@@ -48,6 +67,8 @@ class App extends Component {
 
   render() {
     const { name } = this.state;
+    console.log('configurazione invalida', this.state);
+
     return (
         <div className="PageConfigPage__panel-body panel-body">
           <div className="digital-assistant">
@@ -72,7 +93,7 @@ class App extends Component {
                                         </span>
                           </label></div>
                         <div className="col-sm-10 col-xs-12">
-                          <input className="form-control"  id="name" name="name" defaultValue={this.toBase64(name)} type="text" onChange={
+                          <input className="form-control"  id="name" name="name" defaultValue="Sm9obiBCcm93bg==" type="text" onChange={
                             this.handleChange}  />
                         </div>
                       </div>
