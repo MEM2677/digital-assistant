@@ -12,29 +12,33 @@ class App extends Component {
   }
   componentDidMount() {
     let valore = document.getElementById("name").value;
-    if (valore !== "") {
+    if (!valore && valore !== "") {
       this.setState({invalid: false});
+      console.log("valore dopo didmount", this.state.invalid);
     }
+    console.log("valore dopo didmount 2", this.state.invalid);
   }
 
   handleChange = e => {
     const input = e.target;
     const encoded = input.value;
-    // const test = document.getElementById('widget-button-holder');
-    // console.log(test);
-
+    const save = Array.from(
+      document.getElementsByClassName('save')
+    );
+    let saveButton = save[0];
     let decoded;
 
       decoded = Buffer.from(encoded, 'base64').toString('utf-8');
       if (encoded !== '' && Buffer.from(decoded, 'utf-8').toString('base64') === encoded) {
-          // console.log('have valid configuration', decoded);
         this.setState({invalid: false});
+        saveButton.removeAttribute('disabled');
+        saveButton.style.pointerEvents = "unset";
       } else {
         // invalid input
         decoded = input.value;
         this.setState({invalid: true});
-        console.log("non valido");
-
+        saveButton.setAttribute('disabled');
+        saveButton.style.pointerEvents = "none";
       }
     this.setState({
       [input.name]: decoded,
@@ -54,7 +58,7 @@ class App extends Component {
 
   render() {
     const { name } = this.state;
-    console.log('configurazione invalida', this.state);
+    console.log('configurazione pre render', this.state);
 
     return (
         <div className="PageConfigPage__panel-body panel-body">
@@ -90,7 +94,7 @@ class App extends Component {
                     <div className={`labelerror no-padding col-lg-12 ${ this.state.invalid ? 'error' : 'hidden' }`}>
                       <div className="alert alert alert-danger">
                         <span aria-hidden="true" className="pficon pficon-error-circle-o"></span>
-                        <span><strong>Insert a valid Base64 code</strong></span>
+                        <span><strong>Insert a valid activation code</strong></span>
                       </div>
                     </div>
 
