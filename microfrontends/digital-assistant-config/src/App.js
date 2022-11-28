@@ -12,23 +12,10 @@ class App extends Component {
   }
   componentDidMount() {
     let valore = document.getElementById("name").value;
-
     if (valore !== "") {
-
-      const encodato = valore;
-      let decodificato;
-
-      decodificato = Buffer.from(encodato, 'base64').toString('utf-8');
-      if (encodato !== '' && Buffer.from(decodificato, 'utf-8').toString('base64') === encodato) {
-        this.setState({invalid: false});
-      } else {
-        // invalid input
-        decodificato = valore;
-        this.setState({invalid: true});
-      }
+      this.setState({invalid: false});
     }
   }
-
 
   handleChange = e => {
     const input = e.target;
