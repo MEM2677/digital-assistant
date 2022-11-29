@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 const App = (props) => {
-  const [name, setName] = useState('')
+  const [name, setName] = useState(props.name)
   const [invalid, setInvalid] = useState(false)
+
+  console.log('init', props.name)
 
   useEffect(() => {
     if (props.name) {
